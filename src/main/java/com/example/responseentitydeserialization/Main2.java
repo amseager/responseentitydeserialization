@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 
 public class Main2 {
 
@@ -27,7 +28,7 @@ public class Main2 {
 	public abstract static class ResponseEntityMixin<T> {
 
 		@JsonCreator
-		public ResponseEntityMixin(@JsonProperty("body") T body, @JsonProperty("status") HttpStatus status) {
+		public ResponseEntityMixin(@JsonProperty("body") T body, @JsonProperty("headers") MultiValueMap<String, String> headers, @JsonProperty("status") HttpStatus status) {
 		}
 	}
 }
